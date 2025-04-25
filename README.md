@@ -1,2 +1,2 @@
-# Die-o-y-Aplicaiones-en-la-WEB
+# Diseño-y-Aplicaiones-en-la-WEB
 En este repositorio estarán las actividades 
