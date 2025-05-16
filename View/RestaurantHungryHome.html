@@ -1,994 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- Metadatos básicos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Café de especialidad tostado artesanalmente - Experiencia sensorial única">
-    <title>NÉCTAR | Café de Especialidad</title>
-    
+    <meta name="description" content="Café Aromas - El mejor café artesanal de la ciudad">
+
+    <title>Café Nectar - Inicio</title>
+
+    <!-- Estilos embebidos -->
     <style>
-        :root {
-            --black: #0a0a0a;
-            --dark: #1a1a1a;
-            --gray: #333333;
-            --light: #f0f0f0;
-            --white: #ffffff;
-            --primary: #e63946;
-            --secondary: #a8dadc;
-            --accent: #457b9d;
-            --text: #2b2d42;
-        }
-        
-        * {
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f9f5f0;
+            color: #333;
         }
-        
-        @font-face {
-            font-family: 'Neue Machina';
-            src: url('https://fonts.cdnfonts.com/css/neue-machina') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        body {
-            font-family: 'Neue Machina', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        /* Header minimalista con video background */
+
         header {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: #6f4e37;
+            color: white;
             text-align: center;
-            color: var(--white);
-            overflow: hidden;
+            padding: 1rem 0;
+            border-bottom: 5px solid #4a3524;
         }
-        
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.9;
-        }
-        
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(10,10,10,0.8) 0%, rgba(70,70,70,0.4) 100%);
-            z-index: -1;
-        }
-        
-        .logo-container {
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo-img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--white);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 1rem;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-        
-        .logo-text {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            background: linear-gradient(to right, var(--white), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-        
-        /* Navegación minimalista */
+
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(10,10,10,0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .nav-logo {
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            margin-left: 2rem;
-        }
-        
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 300;
-            letter-spacing: 1px;
-            position: relative;
+            background-color: #4a3524;
             padding: 0.5rem 0;
-            transition: color 0.3s;
         }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Contenido principal con diseño de tarjetas asimétricas */
-        main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-        
-        section {
-            margin-bottom: 8rem;
-            scroll-margin-top: 100px;
-        }
-        
-        h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            letter-spacing: -1px;
-        }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            margin: 1.5rem auto;
-            border-radius: 2px;
-        }
-        
-        /* Sección Filosofía con diseño asimétrico */
-        .philosophy {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .philosophy-img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: -20px 20px 0 var(--secondary);
-            transform: rotate(-2deg);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        
-        .philosophy-img:hover {
-            transform: rotate(0deg) translateY(-10px);
-            box-shadow: -10px 30px 0 var(--secondary);
-        }
-        
-        .philosophy-content {
-            padding: 2rem;
-        }
-        
-        .philosophy-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        /* Menú con diseño de tarjetas superpuestas */
-        .menu-container {
-            position: relative;
-            margin-top: 4rem;
-        }
-        
-        .menu-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .menu-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            color: var(--gray);
-            position: relative;
-            letter-spacing: 1px;
-        }
-        
-        .tab-btn::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .tab-btn.active {
-            color: var(--black);
-        }
-        
-        .tab-btn.active::after {
-            width: 100%;
-        }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .menu-item {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .menu-item-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .menu-item-content {
-            padding: 1.8rem;
-        }
-        
-        .menu-item-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--black);
-            font-weight: 700;
-        }
-        
-        .menu-item-desc {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        
-        .menu-item-price {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        /* Sección Orígenes con diseño de mosaico */
-        .origins {
-            position: relative;
-            padding: 6rem 0;
-            background: var(--dark);
-            color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        
-        .origins::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.2;
-            z-index: 0;
-        }
-        
-        .origins h2 {
-            color: var(--white);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .origins h2::after {
-            background: var(--secondary);
-        }
-        
-        .origins-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 1;
-            padding: 0 2rem;
-        }
-        
-        .origin-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.5s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .origin-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            background: rgba(255,255,255,0.15);
-        }
-        
-        .origin-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        
-        .origin-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        /* Sección Contacto con diseño dividido */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
-        }
-        
-        .contact-info {
-            background: var(--light);
-            padding: 3rem;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--primary);
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            color: var(--black);
-        }
-        
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.8rem;
-        }
-        
-        .contact-icon {
-            margin-right: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--primary);
-            min-width: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 3rem;
-            gap: 1rem;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--white);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px);
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: 0 10px 20px rgba(230,57,70,0.3);
-        }
-        
-        .contact-form {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-            color: var(--black);
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(230,57,70,0.1);
-        }
-        
-        .form-textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 1.2rem 2.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            letter-spacing: 1px;
-        }
-        
-        .submit-btn:hover {
-            background: var(--black);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(230,57,70,0.3);
-        }
-        
-        /* Footer con diseño de onda */
-        footer {
-            position: relative;
-            background: var(--black);
-            color: var(--white);
-            padding-top: 8rem;
-            margin-top: 8rem;
-        }
-        
-        .wave {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%230a0a0a" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%230a0a0a" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%230a0a0a"/></svg>');
-            background-size: cover;
-        }
-        
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-        }
-        
-        .footer-logo {
-            width: 150px;
-            margin-bottom: 1.5rem;
-            filter: brightness(0) invert(1);
-        }
-        
-        .footer-about p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            opacity: 0.8;
-        }
-        
-        .footer-links h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links a {
-            color: var(--white);
+
+        nav a {
+            color: white;
             text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-            position: relative;
-            padding-bottom: 3px;
+            margin: 0 15px;
+            font-weight: bold;
         }
-        
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--primary);
-            transition: width 0.3s ease;
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
         }
-        
-        .footer-links a:hover {
-            opacity: 1;
+
+        #menu {
+            background-color: #e8d9c5;
         }
-        
-        .footer-links a:hover::after {
-            width: 30px;
+
+        #horarios {
+            background-color: #d2b48c;
         }
-        
-        .newsletter-form {
-            margin-top: 1.5rem;
-        }
-        
-        .newsletter-input {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        .newsletter-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 1rem;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .newsletter-btn:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-        
-        .copyright {
+
+        footer {
+            background-color: #6f4e37;
+            color: white;
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            opacity: 0.6;
+            padding: 1rem 0;
+            margin-top: 20px;
         }
-        
-        /* Efectos responsivos */
-        @media (max-width: 1024px) {
-            .philosophy {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
-        
-        @media (max-width: 768px) {
-            .logo-text {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-                padding: 0 1rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .menu-card {
-                padding: 2rem 1.5rem;
-            }
+
+        table,
+        th,
+        td {
+            border: 1px solid #4a3524;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4a3524;
+            color: white;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .destacado {
+            font-weight: bold;
+            color: #6f4e37;
         }
     </style>
 </head>
+
 <body>
-    <!-- Header con video background -->
+    <!-- Cabecera con logo y título -->
     <header id="inicio">
-        <video autoplay muted loop class="video-bg">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-steaming-coffee-cup-in-a-coffee-shop-4132-large.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
-        
-        <!-- Navegación minimalista -->
-        <nav>
-            <a href="#inicio" class="nav-logo">NÉCTAR</a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#filosofia" class="nav-link">Filosofía</a></li>
-                <li class="nav-item"><a href="#menu" class="nav-link">Menú</a></li>
-                <li class="nav-item"><a href="#origenes" class="nav-link">Orígenes</a></li>
-                <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
-            </ul>
-        </nav>
-        
-        <!-- Contenido del header -->
-        <div class="logo-container">
-            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Logo Néctar Café" class="logo-img">
-            <h1 class="logo-text">Néctar</h1>
-            <p class="tagline">Café de especialidad tostado artesanalmente. Cada taza es una experiencia sensorial única.</p>
+        <h1 style="margin: 0; font-size: 2.5em;">Café Nectar</h1>
+        <p style="margin: 0; font-style: italic;">Donde cada taza cuenta una historia</p>
+        <!-- Logo simulado con texto -->
+        <div
+            style="background-color: #d2b48c; display: inline-block; padding: 10px; margin-top: 10px; border-radius: 50%;">
+            <span style="font-size: 2em;">☕</span>
         </div>
     </header>
-    
+
+    <!-- Barra de navegación -->
+    <nav>
+        <div style="text-align: center;">
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Nuestro Menú</a>
+            <a href="#horarios">Horarios</a>
+            <a href="#nosotros">Sobre Nosotros</a>
+            <a href="#contacto">Contacto</a>
+            <!-- Enlace externo -->
+            <a href="https://es.wikipedia.org/wiki/Caf%C3%A9" target="_blank" title="Aprende más sobre café">Saber
+                más</a>
+        </div>
+    </nav>
+
     <!-- Contenido principal -->
     <main>
-        <!-- Sección Filosofía -->
-        <section id="filosofia">
-            <h2>Nuestra Esencia</h2>
-            <div class="philosophy">
-                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Granos de café de especialidad" class="philosophy-img">
-                <div class="philosophy-content">
-                    <p>En NÉCTAR, transformamos el ritual del café en una experiencia multisensorial. Nuestro enfoque se basa en tres pilares fundamentales: origen, arte y ciencia.</p>
-                    <p>Trabajamos directamente con pequeños productores en Colombia, Etiopía y Costa Rica, asegurando prácticas sostenibles y comercio justo. Cada lote de granos es cuidadosamente seleccionado por nuestros maestros tostadores.</p>
-                    <p>Nuestros baristas, certificados por la Specialty Coffee Association, dominan técnicas de extracción precisas para resaltar los perfiles únicos de cada origen. Desde el espresso perfecto hasta métodos de filtrado alternativos, cada preparación es una celebración del terroir cafetalero.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Sección Menú -->
+        <!-- Sección 1: Menú -->
         <section id="menu">
-            <h2>Experiencias de Café</h2>
-            <div class="menu-container">
-                <div class="menu-card">
-                    <div class="menu-tabs">
-                        <button class="tab-btn active" data-tab="espresso">Espresso</button>
-                        <button class="tab-btn" data-tab="filtrados">Filtrados</button>
-                        <button class="tab-btn" data-tab="especiales">Especiales</button>
-                    </div>
-                    
-                    <div class="tab-content active" id="espresso">
-                        <div class="menu-grid">
-                            <div class="menu-item">
-                                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=200&q=80" alt="Espresso" class="menu-item-img">
-                                <div class="menu-item-content">
-                                    <h3 class="menu-item-title">Espresso NÉCTAR</h3>
-                                    <p class="menu-item-desc">Nuestra firma: equilibrio perfecto entre dulzor, acidez y cuerpo. Notas de chocolate negro, caramelo y frutos rojos.</p>
-                                    <p class="menu-item-price">$3.80</p>
-                                </div>
-                            </div>
-                            
-                            <div class="menu-item">
-                                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=200&q=80" alt="Flat White" class="menu-item-img">
-                                <div class="menu-item-content">
-                                    <h3 class="menu-item-title">Flat White</h3>
-                                    <p class="menu-item-desc">Doble ristretto con leche texturizada cremosa. Más intenso que un latte, más suave que un cortado.</p>
-                                    <p class="menu-item-price">$4.50</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-content" id="filtrados">
-                        <div class="menu-grid">
-                            <div class="menu-item">
-                                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=200&q=80" alt="Pour Over" class="menu-item-img">
-                                <div class="menu-item-content">
-                                    <h3 class="menu-item-title">Pour Over Etiopía</h3>
-                                    <p class="menu-item-desc">Single origin Yirgacheffe. Notas florales, bergamota y melocotón. Técnica de vertido manual V60.</p>
-                                    <p class="menu-item-price">$5.20</p>
-                                </div>
-                            </div>
-                            
-                            <div class="menu-item">
-                                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=200&q=80" alt="Aeropress" class="menu-item-img">
-                                <div class="menu-item-content">
-                                    <h3 class="menu-item-title">Aeropress Colombia</h3>
-                                    <p class="menu-item-desc">Huila, proceso honey. Cuerpo sedoso con notas de miel, manzana roja y nuez moscada.</p>
-                                    <p class="menu-item-price">$5.50</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-content" id="especiales">
-                        <div class="menu-grid">
-                            <div class="menu-item">
-                                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=200&q=80" alt="Cold Brew" class="menu-item-img">
-                                <div class="menu-item-content">
-                                    <h3 class="menu-item-title">Cold Brew Nitro</h3>
-                                    <p class="menu-item-desc">Infusión en frío por 18 horas con nitrógeno. Textura cremosa, dulce natural y bajo en acidez.</p>
-                                    <p class="menu-item-price">$5.80</p>
-                                </div>
-                            </div>
-                            
-                            <div class="menu-item">
-                                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=200&q=80" alt="Café Tónico" class="menu-item-img">
-                                <div class="menu-item-content">
-                                    <h3 class="menu-item-title">Café Tónico</h3>
-                                    <p class="menu-item-desc">Espresso sobre tónica artesanal con cítricos. Refrescante y complejo, perfecto para días cálidos.</p>
-                                    <p class="menu-item-price">$6.20</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 style="color: #4a3524; border-bottom: 2px solid #4a3524; padding-bottom: 5px;">Nuestro Menú</h2>
+
+            <article>
+                <h3>Bebidas de Café</h3>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                    </tr>
+                    <tr>
+                        <td>Espresso</td>
+                        <td>Café puro y fuerte</td>
+                        <td>$4.000</td>
+                    </tr>
+                    <tr>
+                        <td>Capuccino</td>
+                        <td>Espresso con leche vaporizada y espuma</td>
+                        <td>$5.000</td>
+                    </tr>
+                    <tr>
+                        <td>Latte</td>
+                        <td>Espresso con más leche y poca espuma</td>
+                        <td>$4.700</td>
+                    </tr>
+                    <tr>
+                        <td>Mocha</td>
+                        <td>Latte con chocolate</td>
+                        <td>$7.000</td>
+                    </tr>
+                </table>
+            </article>
+
+            <aside style="background-color: #d2b48c; padding: 15px; border-radius: 5px; margin-top: 20px;">
+                <h3>Especial del Mes</h3>
+                <p>Prueba nuestro <span class="destacado">Caramel Macchiato</span> con un 20% de descuento durante todo
+                    noviembre.</p>
+                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                    alt="Caramel Macchiato, nuestro especial del mes"
+                    style="max-width: 200px; display: block; margin: 10px auto;">
+            </aside>
         </section>
-        
-        <!-- Sección Orígenes -->
-        <section id="origenes">
-            <div class="origins">
-                <h2>Terroir Cafetalero</h2>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; position: relative; z-index: 1;">Trabajamos con fincas que practican agricultura regenerativa, preservando la biodiversidad y pagando precios justos por cosechas excepcionales.</p>
-                
-                <div class="origins-grid">
-                    <div class="origin-card">
-                        <div class="origin-icon">🌄</div>
-                        <h3 class="origin-title">Etiopía</h3>
-                        <p>Región: Yirgacheffe<br>Altitud: 2,100 msnm<br>Varietal: Heirloom<br>Notas: Floral, bergamota, melocotón</p>
-                    </div>
-                    
-                    <div class="origin-card">
-                        <div class="origin-icon">🌋</div>
-                        <h3 class="origin-title">Colombia</h3>
-                        <p>Región: Huila<br>Altitud: 1,750 msnm<br>Varietal: Caturra<br>Notas: Caramelo, nuez, manzana roja</p>
-                    </div>
-                    
-                    <div class="origin-card">
-                        <div class="origin-icon">🌧️</div>
-                        <h3 class="origin-title">Costa Rica</h3>
-                        <p>Región: Tarrazú<br>Altitud: 1,850 msnm<br>Proceso: Honey<br>Notas: Miel, cítricos, chocolate</p>
-                    </div>
-                </div>
-            </div>
+
+        <!-- Sección 2: Horarios -->
+        <section id="horarios">
+            <h2 style="color: #4a3524; border-bottom: 2px solid #4a3524; padding-bottom: 5px;">Horarios de Atención</h2>
+
+            <ul style="list-style-type: none; padding: 0;">
+                <li>Lunes a Viernes: 7:00 - 20:00</li>
+                <li>Sábados: 8:00 - 22:00</li>
+                <li>Domingos: 9:00 - 18:00</li>
+            </ul>
+
+            <p style="text-align: center; font-style: italic;">¡Los días festivos tenemos horario especial!</p>
         </section>
-        
-        <!-- Sección Contacto -->
-        <section id="contacto">
-            <h2>Reserva tu Experiencia</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Nuestro Espacio</h3>
-                    <div class="contact-detail">
-                        <div class="contact-icon">📍</div>
-                        <p>Calle del Aroma 456, Distrito Cafetalero<br>Ciudad del Café, CP 12345</p>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">🕒</div>
-                        <p>Lunes a Viernes: 7:30am - 8:00pm<br>Sábado y Domingo: 8:00am - 6:00pm</p>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <div class="contact-icon">📞</div>
-                        <p>+1 234 567 890<br>reservas@nectarcafe.com</p>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-link">📱</a>
-                        <a href="#" class="social-link">📸</a>
-                        <a href="#" class="social-link">📘</a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Formulario de Contacto</h3>
-                    <form>
-                        <div class="form-group">
-                            <label class="form-label">Nombre</label>
-                            <input type="text" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Fecha y Hora</label>
-                            <input type="datetime-local" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Mensaje</label>
-                            <textarea class="form-input form-textarea"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Reservar</button>
-                    </form>
-                </div>
-            </div>
+
+        <!-- Sección 3: Sobre Nosotros -->
+        <section id="nosotros">
+            <h2 style="color: #4a3524; border-bottom: 2px solid #4a3524; padding-bottom: 5px;">Sobre Nosotros</h2>
+
+            <article>
+                <p>Fundada en 2010, <span class="destacado">Café Nectar</span> nació del sueño de ofrecer café de
+                    calidad en un ambiente acogedor. Nuestros granos son seleccionados cuidadosamente de las mejores
+                    plantaciones y tostados artesanalmente.</p>
+
+                <p>Más que una cafetería, somos un espacio donde la comunidad se reúne para compartir momentos
+                    especiales alrededor de una buena taza de café.</p>
+
+                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    alt="Interior acogedor de Café Aromas"
+                    style="display: block; margin: 20px auto; max-width: 80%; border: 3px solid #4a3524;">
+            </article>
         </section>
     </main>
-    
-    <!-- Footer con onda decorativa -->
-    <footer>
-        <div class="wave"></div>
-        <div class="footer-content">
-            <div class="footer-about">
-                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Logo Néctar Café" class="footer-logo">
-                <p>NÉCTAR es más que una cafetería, es un espacio donde celebramos la cultura del café de especialidad a través de experiencias sensoriales únicas.</p>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Explorar</h3>
-                <ul>
-                    <li><a href="#filosofia">Nuestra Filosofía</a></li>
-                    <li><a href="#menu">Experiencias de Café</a></li>
-                    <li><a href="#origenes">Terroir Cafetalero</a></li>
-                    <li><a href="#contacto">Reservas</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Newsletter</h3>
-                <p>Suscríbete para recibir noticias sobre eventos, nuevos orígenes y promociones especiales.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" class="newsletter-input" required>
-                    <button type="submit" class="newsletter-btn">Suscribirse</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2023 NÉCTAR Café de Especialidad. Todos los derechos reservados. <!-- Comentario: Proyecto educativo de HTML5 --></p>
-        </div>
+
+    <!-- Pie de página -->
+    <footer id="contacto">
+        <h3 style="margin-top: 0;">Contacto</h3>
+        <p>Dirección: Calle Aromática 123, Centro</p>
+        <p>Teléfono: (011) 4567-8910</p>
+        <p>Email: info@cafearomas.com</p>
+        <p>Síguenos en redes sociales: @cafenectar</p>
+        <p style="font-size: 0.8em; margin-top: 20px;">© 2023 Café Nectar - Todos los derechos reservados</p>
     </footer>
-    
-    <script>
-        // Funcionalidad de las pestañas del menú
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remover clase active de todos los botones y contenidos
-                    tabBtns.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Agregar clase active al botón clickeado
-                    btn.classList.add('active');
-                    
-                    // Mostrar el contenido correspondiente
-                    const tabId = btn.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-            
-            // Efecto de scroll suave para los enlaces
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+
+    <!-- Comentario final explicativo -->
+    <!-- 
+        Este sitio fue creado como actividad para la cátedra de Diseño y Aplicaciones Web.
+        Cumple con todos los requisitos solicitados:
+        - Estructura HTML5 correcta
+        - Etiquetas semánticas (header, nav, main, section, article, aside, footer)
+        - Elementos adicionales (tabla, lista, imagen con alt)
+        - Enlaces internos y externos
+        - Estilos embebidos con más de 5 propiedades CSS
+        - Atributos como id, class, lang, title
+        - Comentarios HTML explicativos
+    -->
 </body>
+
 </html>
